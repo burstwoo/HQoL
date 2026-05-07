@@ -54,7 +54,7 @@ internal class StartOfRoundPatches
         __instance.shipIntroSpeechSFX = __instance.disableSpeakerSFX;
     }
 
-    [HarmonyPatch(nameof(StartOfRound.SetShipReadyToLand))]
+    [HarmonyPatch(nameof(StartOfRound.AutoSaveShipData))]
     [HarmonyPrefix]
     private static void PostPassTimeToNextDay(StartOfRound __instance)
     {
