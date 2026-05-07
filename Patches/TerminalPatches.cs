@@ -574,7 +574,7 @@ internal static class TerminalHelper
         HashSet<string> allDepositdScrapNames = new();
         foreach (GrabbableObject item in allItems)
         {
-            if (!item.itemProperties.isScrap || item.itemProperties.name == "GiftBox")
+            if (!item.itemProperties.isScrap || item.itemProperties.name == "GiftBox" || (HQoL.grabObjDeactivatedInfo != null && (bool)HQoL.grabObjDeactivatedInfo.GetValue(item)))
                 continue;
 
             string allScrapNames = item.itemProperties.name + '#' + item.gameObject.GetComponentInChildren<ScanNodeProperties>().headerText;

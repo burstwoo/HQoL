@@ -16,6 +16,7 @@ public class HQoL : BaseUnityPlugin
 
     internal static Util.SellModule sellModule = null!;
     internal static HQoLConfig modConfig = null!;
+    internal static readonly FieldInfo? grabObjDeactivatedInfo = AccessTools.Field(typeof(GrabbableObject), nameof(GrabbableObject.deactivated));
 
     //Netcode multipathing copied from https://github.com/ZehsTeam/Lethal-Company-SellMyScrap
 #if LC_VERSION_73

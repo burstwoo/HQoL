@@ -54,8 +54,8 @@ internal class StartOfRoundPatches
         __instance.shipIntroSpeechSFX = __instance.disableSpeakerSFX;
     }
 
-    [HarmonyPatch(nameof(StartOfRound.PassTimeToNextDay))]
-    [HarmonyPostfix]
+    [HarmonyPatch(nameof(StartOfRound.SetShipReadyToLand))]
+    [HarmonyPrefix]
     private static void PostPassTimeToNextDay(StartOfRound __instance)
     {
         bool isChalFile = false;
@@ -71,6 +71,7 @@ internal class StartOfRoundPatches
             List<GrabbableObject> allScrap = new(Object.FindObjectsByType<GrabbableObject>(FindObjectsSortMode.None));
             allScrap.RemoveAll(scrapObj =>
                     scrapObj.isHeld ||
+                    (HQoL.grabObjDeactivatedInfo != null && (bool)HQoL.grabObjDeactivatedInfo.GetValue(scrapObj)) ||
                     !scrapObj.itemProperties.isScrap ||
                     scrapObj.itemProperties.name == "GiftBox" ||
                     HQoL.modConfig.storageException.Contains(scrapObj.itemProperties.name.ToLower()) || //internal scrap name

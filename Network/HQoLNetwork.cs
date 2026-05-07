@@ -123,6 +123,7 @@ internal class HQoLNetwork : NetworkBehaviour
         {
             allScrap.RemoveAll(scrapObj =>
                     scrapObj.isHeld ||
+                    (HQoL.grabObjDeactivatedInfo != null && (bool)HQoL.grabObjDeactivatedInfo.GetValue(scrapObj)) ||
                     !scrapObj.itemProperties.isScrap ||
                     scrapObj.itemProperties.name == "GiftBox" ||
                     HQoL.modConfig.storageException.Contains(scrapObj.itemProperties.name.ToLower()) || //internal scrap name
@@ -136,6 +137,7 @@ internal class HQoLNetwork : NetworkBehaviour
         {
             allScrap.RemoveAll(scrapObj =>
                     scrapObj.isHeld ||
+                    (HQoL.grabObjDeactivatedInfo != null && (bool)HQoL.grabObjDeactivatedInfo.GetValue(scrapObj)) ||
                     !scrapObj.itemProperties.isScrap ||
                     scrapObj.itemProperties.name == "GiftBox" ||
                     scrapObj.gameObject.GetComponentInChildren<ScanNodeProperties>().headerText != itemName ||
