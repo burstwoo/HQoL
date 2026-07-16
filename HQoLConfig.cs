@@ -10,7 +10,7 @@ public class HQoLConfig
 {
     public HashSet<string> storageException;
     public readonly ConfigEntry<string> storageExceptionConfig;
-    public HashSet<bool> sortLoot;
+    public bool sortLoot;
     public readonly ConfigEntry<bool> sortLootConfig;
 
     public HQoLConfig(ConfigFile cfg)
@@ -36,7 +36,7 @@ public class HQoLConfig
         cfg.SaveOnConfigSet = true; 
 
         storageException = new(storageExceptionConfig.Value.Split(new char[] {','}, System.StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim().ToLower()));
-        sortLoot = sortLootConfig[2]; 
+        sortLoot = sortLootConfig.Value;
     }
 
     static void ClearOrphanedEntries(ConfigFile cfg) 
