@@ -145,7 +145,7 @@ public static class StartOfRoundHelper
     {
         if (HQoL.modConfig.sortLoot == false)
         {
-            break;
+            return;
         } 
         
         if (currItemID == jetpackID)
