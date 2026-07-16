@@ -31,6 +31,7 @@ public class HQoLConfig
                 "If loot can be automatically sorted"
                 );
 
+        
         ClearOrphanedEntries(cfg); 
         cfg.Save(); 
         cfg.SaveOnConfigSet = true; 
