@@ -135,20 +135,15 @@ internal class StartOfRoundPatches
 
 public static class StartOfRoundHelper
 {
-    public const int jetpackID = 4;
-    public const int keyID = 5;
-    public const int shovelID = 10;
-    public const int shotgunID = 59;
-    public const int knifeID = 68;
-
-    public static void MoveItemsToSpecialStartPosition(StartOfRound instance, int currItemID, ref Vector3 currItemPosition)
+    var itemName = instance.allItemsList.itemsList[currItemID].name;
+    
     {
         if (HQoL.modConfig.sortLoot == false)
         {
             return;
         } 
         
-        if (currItemID == jetpackID)
+        if (itemName == "Jetpack")
         {
             currItemPosition.x = 5f;
             currItemPosition.y = instance.playerSpawnPositions[1].position.y + 0.5f;
@@ -156,7 +151,7 @@ public static class StartOfRoundHelper
             return;
         }
 
-        if (currItemID == keyID)
+        if (itemName == "Key")
         {
             currItemPosition.x = -4f;
             currItemPosition.y = instance.playerSpawnPositions[1].position.y + 0.5f;
@@ -164,7 +159,7 @@ public static class StartOfRoundHelper
             return;
         }
 
-        if (currItemID == shovelID)
+        if (itemName == "Shovel")
         {
             currItemPosition.x = 3.5f;
             currItemPosition.y = instance.playerSpawnPositions[1].position.y + 0.5f;
@@ -172,7 +167,7 @@ public static class StartOfRoundHelper
             return;
         }
 
-        if (currItemID == shotgunID)
+        if (itemName == "Shotgun")
         {
             currItemPosition.x = 0f;
             currItemPosition.y = instance.playerSpawnPositions[1].position.y + 0.5f;
@@ -180,7 +175,23 @@ public static class StartOfRoundHelper
             return;
         }
 
-        if (currItemID == knifeID)
+        if (itemName == "Knife")
+        {
+            currItemPosition.x = -1f;
+            currItemPosition.y = instance.playerSpawnPositions[1].position.y + 0.5f;
+            currItemPosition.z = -13f;
+            return;
+        }
+        
+        if (itemName == "ProFlashlight")
+        {
+            currItemPosition.x = -1f;
+            currItemPosition.y = instance.playerSpawnPositions[1].position.y + 0.5f;
+            currItemPosition.z = -13f;
+            return;
+        }
+        
+        if (itemName == "Flashlight")
         {
             currItemPosition.x = -1f;
             currItemPosition.y = instance.playerSpawnPositions[1].position.y + 0.5f;
